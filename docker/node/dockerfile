@@ -1,0 +1,4 @@
+FROM node:lts-alpine
+WORKDIR /application
+COPY package*.json ./
+COPY . .
