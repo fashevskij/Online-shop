@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('volume_id')->nullable();
             $table->string('type');
             $table->integer('price');
+            $table->integer('discount_price');
+            $table->boolean('popular');
             $table->boolean('status');
             $table->boolean('show');
             $table->timestamps();
