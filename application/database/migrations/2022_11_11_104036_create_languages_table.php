@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_descriptions_ua', static function (Blueprint $table) {
+        Schema::create('languages', static function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
-            $table->string('name');
-            $table->string('seo_title');
-            $table->string('seo_description');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_descriptions_ua');
+        Schema::dropIfExists('languages');
     }
 };

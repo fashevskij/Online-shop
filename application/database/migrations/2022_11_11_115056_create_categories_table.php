@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_colors', static function (Blueprint $table) {
+        Schema::create('categories', static function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->string('slug');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_colors');
+        Schema::dropIfExists('categories');
     }
 };

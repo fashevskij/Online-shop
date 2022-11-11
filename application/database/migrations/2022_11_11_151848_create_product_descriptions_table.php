@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_descriptions_ua', static function (Blueprint $table) {
+        Schema::create('product_descriptions', static function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id');
+            $table->foreignId('language_id')->references('id')->on('languages');
             $table->string('name');
-            $table->string('short_description');
-            $table->string('full_description');
+            $table->string('description');
+            $table->string('use');
+            $table->string('feature');
+            $table->string('specification');
+            $table->string('documentation');
             $table->string('seo_title');
             $table->string('seo_description');
             $table->timestamps();
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_descriptions_ua');
+        Schema::dropIfExists('product_descriptions');
     }
 };

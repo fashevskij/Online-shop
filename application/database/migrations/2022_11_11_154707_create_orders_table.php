@@ -14,14 +14,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', static function (Blueprint $table) {
-            $table->id();
             $table->uuid('order_code');
             $table->integer('barcode');
             $table->string('product_name');
             $table->string('color_name');
-            $table->string('color_name');
-            $table->double('weight');
-            $table->double('volume');
+            $table->double('pack_value');
+            $table->double('pack_name');
             $table->integer('count');
             $table->double('sum');
             $table->string('name');

@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_weights', static function (Blueprint $table) {
+        Schema::create('sub_categories', static function (Blueprint $table) {
             $table->id();
-            $table->double('weight');
+            $table->string('slug');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_weights');
+        Schema::dropIfExists('sub_categories');
     }
 };

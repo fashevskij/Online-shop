@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('color_descriptions_ua', static function (Blueprint $table) {
+        Schema::create('product_packs', static function (Blueprint $table) {
             $table->id();
-            $table->integer('product_color_id');
+            $table->double('value');
             $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('color_descriptions_ua');
+        Schema::dropIfExists('product_packs');
     }
 };

@@ -39,5 +39,4 @@ final class ProductQueryBuilder implements ProductReadModel
             ->where('products.slug', '=', $slug->getValue())
             ->get();
     }
-
 }
