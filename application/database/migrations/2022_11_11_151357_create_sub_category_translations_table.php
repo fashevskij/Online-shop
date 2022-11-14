@@ -12,27 +12,20 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('products', static function (Blueprint $table) {
+        Schema::create('sub_category_translations', static function (Blueprint $table) {
             $table->id();
-            $table->integer('barcode');
             $table->foreignId('sub_category_id')
                 ->references('id')
                 ->on('sub_categories')
                 ->cascadeOnDelete();
-            $table->foreignId('color_id')
+            $table->foreignId('language_id')
                 ->references('id')
-                ->on('colors')
+                ->on('languages')
                 ->cascadeOnDelete();
-            $table->foreignId('pack_id')
-                ->references('id')
-                ->on('packs')
-                ->cascadeOnDelete();
-            $table->integer('price');
-            $table->integer('discount_price')->nullable();
-            $table->enum('popular', ['true', 'false']);
-            $table->enum('status', ['true', 'false']);
-            $table->enum('show', ['true', 'false']);
-            $table->timestamps();
+            $table->unique(["sub_category_id", "language_id"]);
+            $table->string('name');
+            $table->string('seo_title');
+            $table->string('seo_description');
         });
     }
 
@@ -43,6 +36,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('sub_category_translations');
     }
 };

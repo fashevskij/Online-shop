@@ -40,8 +40,8 @@ Route::get('/test', static function () {
     return view('test');
 });
 
-Route::get("/categories", [CategoryController::class, 'getCategories']);
-Route::get("/category/{slug}", [CategoryController::class, 'getCategory']);
-Route::get("/products", [ProductController::class, 'getProducts']);
-Route::get("/test", [CardController::class, 'getProduct']);
-Route::get("/product/{slug}", [ProductController::class, 'getProductItems']);
+Route::get("/home-page", [\App\Http\Controllers\HomeController::class, 'categories']);
+//Route::get("/category/{slug}", [CategoryController::class, 'getCategory']);
+//Route::get("/products", [ProductController::class, 'getProducts']);
+//Route::get("/test", [CardController::class, 'getProduct']);
+//Route::get("/product/{slug}", [ProductController::class, 'getProductItems']);

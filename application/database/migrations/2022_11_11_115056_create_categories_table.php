@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('categories', static function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->references('id')->on('categories');
             $table->string('slug');
-            $table->timestamps();
+            $table->enum('show',['true','false']);
         });
     }
 

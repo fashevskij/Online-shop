@@ -16,3 +16,8 @@ build:
 
 down:
 	docker-compose down
+
+ide-helper:
+	docker compose exec php-fpm php artisan ide-helper:generate
+	docker compose exec php-fpm php artisan ide-helper:meta
+	docker compose exec php-fpm php artisan ide-helper:models -W

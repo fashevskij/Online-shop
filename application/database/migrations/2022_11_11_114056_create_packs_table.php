@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_descriptions', static function (Blueprint $table) {
+        Schema::create('packs', static function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->references('id')->on('categories');
-            $table->foreignId('language_id')->references('id')->on('languages');
+            $table->double('value');
             $table->string('name');
-            $table->string('seo_title');
-            $table->string('seo_description');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_descriptions');
+        Schema::dropIfExists('packs');
     }
 };

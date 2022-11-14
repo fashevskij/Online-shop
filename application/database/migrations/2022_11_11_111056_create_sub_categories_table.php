@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('sub_categories', static function (Blueprint $table) {
             $table->id();
             $table->string('slug');
-            $table->timestamps();
+            $table->enum('show',['true','false']);
         });
     }
 
